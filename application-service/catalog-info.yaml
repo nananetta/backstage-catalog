@@ -1,0 +1,29 @@
+# catalog-info.yaml
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: application-service
+  description: Handles application submission
+  annotations:
+    github.com/project-slug: your-org/application-service
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: application-service   # for AKS plugin linkage
+spec:
+  type: service
+  lifecycle: production
+  owner: PLT_API
+  system: accounts
+  providesApis:
+    - application-service-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: application-service-api
+  description: OpenAPI for Application Service
+spec:
+  type: openapi
+  lifecycle: production
+  owner: PLT_API
+  definition:
+    $text: https://petstore3.swagger.io/api/v3/openapi.json

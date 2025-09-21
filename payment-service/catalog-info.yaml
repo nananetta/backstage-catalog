@@ -1,0 +1,29 @@
+# catalog-info.yaml
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: payment-service
+  description: Handles payment integration
+  annotations:
+    github.com/project-slug: your-org/payment-service
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: payment-service   # for AKS plugin linkage
+spec:
+  type: service
+  lifecycle: production
+  owner: PLT_API
+  system: accounts
+  providesApis:
+    - payment-service-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: payment-service-api
+  description: OpenAPI for payment Service
+spec:
+  type: openapi
+  lifecycle: production
+  owner: PLT_API
+  definition:
+    $text: https://api.apis.guru/v2/specs/adyen.com/BalancePlatformService/2/openapi.json

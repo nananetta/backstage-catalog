@@ -1,0 +1,29 @@
+# catalog-info.yaml
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: nosql-service
+  description: Handles nosql service
+  annotations:
+    github.com/project-slug: your-org/nosql-service
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: nosql-service   # for AKS plugin linkage
+spec:
+  type: service
+  lifecycle: production
+  owner: PLT_API
+  system: accounts
+  providesApis:
+    - nosql-service-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: nosql-service-api
+  description: OpenAPI for nosql Service
+spec:
+  type: openapi
+  lifecycle: production
+  owner: PLT_API
+  definition:
+    $text: https://api.apis.guru/v2/specs/1password.com/events/1.0.0/openapi.json

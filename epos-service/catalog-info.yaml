@@ -1,0 +1,29 @@
+# catalog-info.yaml
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: epos-service
+  description: Handles epos business layer
+  annotations:
+    github.com/project-slug: your-org/epos-service
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: epos-service   # for AKS plugin linkage
+spec:
+  type: service
+  lifecycle: production
+  owner: epos-platform
+  system: accounts
+  providesApis:
+    - epos-service-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: epos-service-api
+  description: OpenAPI for epos Service
+spec:
+  type: openapi
+  lifecycle: production
+  owner: epos-platform
+  definition:
+    $text: hhttps://api.apis.guru/v2/specs/abstractapi.com/geolocation/1.0.0/openapi.json
