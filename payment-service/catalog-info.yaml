@@ -16,7 +16,7 @@ spec:
   providesApis:
     - payment-service-api
   dependsOn:
-    - 'DB:SERVICE_DATA'
+    - resource:default/'DB:SERVICE_DATA'
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API

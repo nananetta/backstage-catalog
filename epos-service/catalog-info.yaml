@@ -16,8 +16,8 @@ spec:
   providesApis:
     - epos-service-api
   dependsOn:
-    - application-service
-    - payment-service
+    - component:default/application-service
+    - component:default/payment-service
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
